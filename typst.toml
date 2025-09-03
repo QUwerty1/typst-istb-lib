@@ -1,0 +1,13 @@
+[package]
+name = "inrtu-istb-report"
+version = "0.1.0"
+entrypoint = "lib.typ"
+authors = ["Semenov Nikita"]
+license = "MIT"
+description = "A template for writing report for INRTU ISTb."
+categories = ['report']
+
+[template]
+thumbnail = "/resources/logo.png"
+path = "template"
+entrypoint = "main.typ"
