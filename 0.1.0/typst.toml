@@ -1,5 +1,5 @@
 [package]
-name = "inrtu-istb-report"
+name = "typst-istb-lib"
 version = "0.1.0"
 entrypoint = "lib.typ"
 authors = ["Semenov Nikita"]
