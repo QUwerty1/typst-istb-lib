@@ -2,12 +2,12 @@
 
 // Шаблон рисунка
 #let img(
-  path: "", // путь к рисунку
+  img, // путь к рисунку
   caption: "", // подпись
   label: <img:default>, // ссылка внутри текста
 ) = [
   #figure(
-    image(path, width: 100%),
+    img,
     caption: [
       #caption
     ],
@@ -122,7 +122,7 @@
           parse-stroke: false,
           parse-alignment: false,
           parse-fill: false,
-          read(path, encoding: none),
+          path,
           parse-header: true,
           stroke: 0.5pt,
         )
