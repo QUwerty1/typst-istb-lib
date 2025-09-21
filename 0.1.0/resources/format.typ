@@ -36,6 +36,8 @@
     numbering: (..nums) => {
       if nums.pos().len() != 1 {
         numbering("1.1", ..nums.pos().slice(1))
+      } else {
+        h(-0.25cm)
       }
     },
   )
@@ -63,6 +65,7 @@
       #it
     ] else [
       #set align(center)
+
       #it
     ]
   ]
@@ -72,8 +75,18 @@
     spacing: leading + 1.25pt,
   )
 
+  set outline(
+    indent: depth => {
+      if depth > 0 {
+        (depth - 1) * 0.5cm
+      } else {
+        0cm
+      }
+    },
+  )
+
   set outline.entry(
-    fill: repeat(gap: 0em, [.])
+    fill: repeat(gap: 0em, [.]),
   )
 
   show outline: it => {
@@ -136,6 +149,32 @@
 
   show enum: it => context {
     set enum(indent: 0.1cm) if enum-level.get() > 1
+    it
+  }
+
+  // Настройка ссылок
+
+  set ref(
+    supplement: none,
+  )
+
+  // Настройка raw-текста
+
+  set raw(
+    tab-size: 2,
+    block: true,
+    theme: "/resources/raw.tmTheme",
+  )
+
+  show raw: it => {
+    set block(
+      inset: (left: 1.25cm),
+    )
+    set text(
+      font: "Courier New",
+      size: 12pt
+    )
+
     it
   }
 
