@@ -29,7 +29,11 @@
     first-line-indent: (amount: 1.25cm, all: true),
     leading: leading,
   )
-  show par: it => block(spacing: leading, it)
+  show par: it => block(
+    spacing: leading,
+    width: 100%,
+    it,
+  )
 
   // Настройка заголовков
   set heading(
@@ -172,11 +176,21 @@
     )
     set text(
       font: "Courier New",
-      size: 12pt
+      size: 12pt,
     )
 
     it
   }
+
+  // Настройка библиографии
+  set bibliography(
+    title: "Список использованных источников",
+    style: "gost-r-705-2008-numeric",
+  )
+
+  show bibliography: set par(
+    spacing: leading,
+  )
 
   doc
 }
