@@ -105,7 +105,7 @@
             #context {
               rep_count_header.step()
               if rep_count_header.get().first() == 0 [
-                #ref(label) -- #caption
+                #ref(label, supplement: "Таблица") -- #caption
               ] else [
                 Продолжение
                 #ref(label, supplement: "таблицы")
