@@ -167,7 +167,7 @@
   set raw(
     tab-size: 2,
     block: true,
-    theme: "/resources/raw.tmTheme",
+  //   theme: "/resources/raw.tmTheme",
   )
 
   show raw: it => {
@@ -175,7 +175,7 @@
       inset: (left: 1.25cm),
     )
     set text(
-      font: "Courier New",
+      font: "Jetbrains Mono",
       size: 12pt,
     )
 
