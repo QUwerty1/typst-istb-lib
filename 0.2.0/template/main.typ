@@ -1,6 +1,20 @@
-#import "../lib.typ": img, xlsx_tab
+#import "@preview/muchpdf:0.1.1": muchpdf
+#import "../lib.typ": *
 
-= Введение
+#show: report
+
+
+#page(
+  margin: 0cm,
+)[
+  #muchpdf(
+    read("assets/Титульник.pdf", encoding: none),
+  )
+]
+
+#outline()
+
+#part[Введение]
 
 В процессе изучения дисциплины «Объектно-ориентированное программирование» мы детально освоили методологию объектной декомпозиции сложных задач, позволяющую разбивать их на управляемые сущности, а также фундаментальные принципы ООП: инкапсуляцию, наследование, полиморфизм. Полученные теоретические знания и навыки были успешно применены на практике при разработке и реализации программ для решения конкретных прикладных задач.
 
@@ -9,8 +23,8 @@
 
 
 #pagebreak()
-== Анализ задания и описание предметной области
-=== Описание предметной области
+= Анализ задания и описание предметной области
+== Описание предметной области
 
 Предметная область: организация работы и хранение информации в коллективах.
 
@@ -67,7 +81,7 @@
 
 
 
-=== Требования к системе
+== Требования к системе
 
 Функциональные требования к веб-приложению:
 
@@ -84,16 +98,16 @@
 
 Работа веб-приложения осуществляется при помощи фреймворка Spring Boot. Получение и отправка данных – посредством REST API. За хранение данных отвечает СУБД PostgreSQL 17. Для отладки работы используется Postman. Для создания API-контрактов используется OpenAPI 3.0.3.
 
-
-
 #pagebreak()
-== Проектирование приложения
-=== Проектирование базы данных
+= Проектирование приложения
+== Проектирование базы данных
 
 + Пользователь
-  + Логин -- имя для входа в систему
-  + Почта -- электронный адрес
-  + Пароль -- зашифрованный пароль
+  #enum_a[
+    + Логин -- имя для входа в систему
+    + Почта -- электронный адрес
+    + Пароль -- зашифрованный пароль
+  ]
 + Блокнот
   + Название -- имя блокнота
   + Дата создания -- когда был создан
@@ -132,32 +146,38 @@
 #pagebreak()
 #set page(flipped: true)
 \ \ \
-#img(
+#figure(
   image("assets/images/ERD.svg"),
   caption: "Диаграмма сущность-связь",
-  label: <img:erd>,
 )
 
 
 #pagebreak()
-=== Описание API-контракта
-#xlsx_tab(
-  read("assets/tables/openapi_endpoints.xlsx", encoding: none),
+== Описание API-контракта
+
+#fig_table(
+  parse_xlsx(
+    read("assets/tables/openapi_endpoints.xlsx", encoding: none),
+    columns: 7,
+  ),
   caption: "Описание API-контракта",
-  columns: 7,
-  label: <tab:openapi-endpoints>,
-  text-align: center + horizon,
+  label: <tab:openapi_endpoints>,
 )
 
 
 #pagebreak()
 #set page(flipped: false)
-=== Описание JSON-схем
-#xlsx_tab(
-  read("assets/tables/openapi_schemas.xlsx", encoding: none),
-  columns: (auto, auto, 1fr, 2fr),
+== Описание JSON-схем
+#fig_table(
+  parse_xlsx(
+    read("assets/tables/openapi_schemas.xlsx", encoding: none),
+    columns: (auto, auto, 1fr, 2fr),
+  ),
   caption: "Описание JSON-схем",
-  text-align: center + horizon,
   label: <tab:openapi-schemas>,
 )
 
+#pagebreak()
+#bibliography(
+  "bib.yml",
+)

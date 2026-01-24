@@ -32,7 +32,7 @@
   show par: it => block(
     spacing: leading,
     width: 100%,
-    it,
+    it
   )
 
   // Настройка заголовков

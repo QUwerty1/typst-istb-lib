@@ -1,0 +1,14 @@
+bib:pgsql:
+  type: Web
+  title: Документация к PostgreSQL 17.5
+  author: Постгрес Профессиональный
+  url:
+    value: "https://repo.postgrespro.ru/doc/pgsql/17.5/ru/postgres-A4.pdf"
+    date: 2025-05-19
+
+bib:spring-boot:
+  type: Web
+  title: Введение в Spring Boot
+  url:
+    value: https://javarush.com/quests/lectures/questspringboot.level01.lecture00
+    date: 2025-05-19

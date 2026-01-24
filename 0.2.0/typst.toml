@@ -1,0 +1,13 @@
+[package]
+name = "typst-istb-lib"
+version = "0.2.0"
+entrypoint = "lib.typ"
+authors = ["Semenov Nikita"]
+license = "MIT"
+description = "A template for writing report for INRTU ISTb."
+categories = ['report']
+
+[template]
+thumbnail = "/src/logo.png"
+path = "template"
+entrypoint = "main.typ"

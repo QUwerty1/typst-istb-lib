@@ -8,15 +8,14 @@
   margin: 0cm
 )[
   #muchpdf(
-    read("/template/assets/Титульник.pdf", encoding: none),
+    read("assets/Титульник.pdf", encoding: none),
   )
 ]
 #counter(page).update(3)
 #outline()
 #pagebreak()
 
-#import "content.typ" : content
-#content
+#include "content.typ"
 
 #pagebreak()
 #bibliography(
