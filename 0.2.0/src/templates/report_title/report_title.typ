@@ -5,7 +5,7 @@
   number: [],
   discipline: [],
   title: [],
-  variant: [],
+  variant: none,
   group: [ИСТб-23-1],
   student_name: [],
   teacher_academic_title: [доцент],
@@ -59,7 +59,11 @@
         table.cell(stroke: (top: 0.5pt))[
           #text(size: 11.5pt)[наименование темы]
         ],
-        [#v(0.5em) Вариант #variant]
+        if variant != none [
+          #v(0.5em) Вариант #variant
+        ] else [
+          #v(0.5em) \
+        ]
       )
     ] else [
       #custom_title

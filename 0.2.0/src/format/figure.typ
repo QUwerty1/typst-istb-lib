@@ -3,19 +3,17 @@
 #let figure_f(doc) = {
   set figure(
     numbering: dependent-numbering(
-      (..numbers) => {
-        let numbers_arr = numbers.pos()
-        numbers_arr.remove(1)
-
-        return numbering("1.1", ..numbers_arr)
-      },
-      levels: 2,
+      "1.1",
+      levels: 1,
     ),
     supplement: "Рисунок",
   )
   set figure.caption(separator: [ -- ])
   show figure: set block(breakable: true)
 
+  show heading: reset-counter(
+    counter(figure.where(kind: image)),
+  )
 
   doc
 }
