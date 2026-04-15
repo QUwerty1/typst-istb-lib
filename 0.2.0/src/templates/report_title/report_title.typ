@@ -10,7 +10,7 @@
   student_name: [],
   teacher_academic_title: [доцент],
   teachers_name: [],
-  year: [2025],
+  year: [2026],
   custom_title: none,
 ) = [
   #show: format
@@ -98,20 +98,33 @@
       return h + v
     },
     columns: (5cm, 3cm, 1cm, 3cm, 1cm, 4cm),
-    rows: 0.62cm,
+    // rows: 0.62cm,
 
     [Выполнил студент], [#group], [], [], [], [#student_name],
 
-    [], [#text(size: 11.5pt)[шифр]], [], [#text(size: 11.5pt)[подпись]], [], [#text(size: 11.5pt)[И.О. Фамилия]],
+    [#v(0.62cm)],
+    [#text(size: 11.5pt)[шифр]],
+    [],
+    [#text(size: 11.5pt)[подпись]],
+    [],
+    [#text(size: 11.5pt)[И.О. Фамилия]],
 
-    [Проверил], [#teacher_academic_title], [], [], [], [#teachers_name],
+    [Проверил], [#teacher_academic_title], [#v(0.62cm)], [], [], [#teachers_name],
 
-    [], [#text(size: 11.5pt)[должность]], [], [#text(size: 11.5pt)[подпись]], [], [#text(size: 11.5pt)[И.О. Фамилия]],
+    [#v(0.62cm)],
+    [#text(size: 11.5pt)[должность]],
+    [],
+    [#text(size: 11.5pt)[подпись]],
+    [],
+    [#text(size: 11.5pt)[И.О. Фамилия]],
 
-    table.cell(colspan: 2)[Работа защищена с оценкой]
+    table.cell(colspan: 2)[Работа защищена с оценкой],
   )
 
-  #v(3.5cm)
-
-  #align(center)[Иркутск #year г.]
+  #place(
+    bottom + center,
+    align(center)[
+      Иркутск #year г.
+    ],
+  )
 ]
