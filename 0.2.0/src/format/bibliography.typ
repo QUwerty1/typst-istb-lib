@@ -7,10 +7,11 @@
   )
 
   show bibliography: it => {
-    show heading: h => {
-      set pad(left: -first_line_indent)
 
-      align(center)[#h]
+    show heading: pad.with(left: -1.25cm)
+
+    show heading: heading => {
+      align(center)[#heading]
     }
 
     it
