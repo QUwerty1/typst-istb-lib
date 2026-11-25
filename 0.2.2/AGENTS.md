@@ -37,3 +37,37 @@ Recent commits use concise imperative Russian descriptions, such as `Испра�
 ## Configuration and Assets
 
 Keep package metadata in `typst.toml` synchronized with public API changes. Preserve licensing information and reference assets through repository-relative paths so the package remains portable when installed by Typst.
+
+## Structuring Report Sections
+
+Use the exported `#part` helper for structural report sections such as `Введение`, основная часть, and `Заключение`. It renders a centered, unnumbered heading and, by default, starts the section on a new page:
+
+```typst
+#part[Введение]
+
+Текст введения.
+
+#part[Заключение]
+```
+
+Pass `is_pagebreak: false` when a section must follow the preceding content on the same page:
+
+```typst
+#part(is_pagebreak: false)[Продолжение]
+```
+
+Do not use `#part` for `Содержание` or `Список использованных источников`. Generate the contents page with `#outline`, and generate the references with `#bibliography` using a Hayagriva bibliography file:
+
+```typst
+#outline(title: [Содержание])
+
+#bibliography("bib.yml")
+```
+
+Declare the Hayagriva schema explicitly at the beginning of `bib.yml` so editors and validators interpret the file correctly:
+
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/typst/hayagriva/main/schema.json
+references:
+  # ...
+```
